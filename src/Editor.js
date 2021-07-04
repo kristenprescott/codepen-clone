@@ -7,6 +7,7 @@ import "codemirror/mode/css/css";
 import { Controlled as ControlledEditor } from "react-codemirror2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCompressAlt, faExpandAlt } from "@fortawesome/free-solid-svg-icons";
+import "./index.css";
 
 export default function Editor(props) {
   const { language, displayName, value, onChange } = props;
@@ -32,6 +33,7 @@ export default function Editor(props) {
         onBeforeChange={handleChange}
         value={value}
         className="code-mirror-wrapper"
+        autoScroll="true"
         options={{
           lineWrapping: true,
           lint: true,

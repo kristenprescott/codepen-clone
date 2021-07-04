@@ -62,3 +62,13 @@ body {
   border-bottom-left-radius: 0.5rem;
   overflow: hidden;
 }
+
+.CodeMirror {
+  border: 1px solid transparent;
+  height: auto;
+
+  resize: vertical;
+  /* resize: both; */
+  overflow: auto !important;
+  /* overflow: visible; */
+}
