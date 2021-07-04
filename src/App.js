@@ -4,6 +4,8 @@ import Editor from "./Editor";
 // import Terminal from "./Terminal";
 import useLocalStorage from "./useLocalStorage";
 
+// import SplitterLayout from "react-splitter-layout";
+
 function App() {
   const [html, setHtml] = useLocalStorage("html", "");
   const [css, setCss] = useLocalStorage("css", "");
@@ -34,11 +36,25 @@ function App() {
     return () => clearTimeout(timeout);
   }, [html, css, js]);
 
+  const code = `const a = 0;`;
+
   return (
     <>
+      {/* <SplitterLayout
+        split="horizontal"
+        minSize={820}
+        maxSize={-176}
+        defaultSize="69%"
+        primary="first"
+        borderColor="#999"
+        percentage={false}
+        primaryIndex={1}
+        secondaryInitialSize={100}
+      > */}
       <div className="pane top-pane">
         {/* <div className="small-pane"> */}
         <Editor
+          defaultValue={code}
           language="xml"
           displayName="HTML"
           value={html}
@@ -65,7 +81,14 @@ function App() {
         />
         {/* </div> */}
       </div>
+      {/* </SplitterLayout> */}
 
+      {/* <SplitterLayout
+        borderColor="#999"
+        percentage={false}
+        primaryIndex={1}
+        secondaryInitialSize={100}
+      > */}
       <div className="pane">
         <iframe
           srcDoc={srcDoc}
@@ -78,6 +101,7 @@ function App() {
 
         {/* <Terminal history={history} clearHistory={clearHistory} /> */}
       </div>
+      {/* </SplitterLayout> */}
     </>
   );
 }

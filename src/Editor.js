@@ -17,7 +17,9 @@ import "codemirror/addon/hint/show-hint.js";
 import "codemirror/addon/display/autorefresh";
 import "codemirror/addon/comment/comment";
 import "codemirror/addon/edit/matchbrackets";
-// import "codemirror/keymap/sublime";
+import "codemirror/addon/edit/closebrackets";
+import "codemirror/addon/edit/closetag";
+import "codemirror/keymap/sublime";
 
 import "codemirror/addon/selection/active-line";
 import "codemirror/addon/fold/foldcode";
@@ -28,7 +30,16 @@ import "codemirror/addon/fold/indent-fold";
 import "codemirror/addon/fold/xml-fold";
 import "codemirror/addon/fold/foldgutter.css";
 
+import "codemirror/addon/search/searchcursor";
 import "codemirror/addon/search/match-highlighter";
+import "codemirror/addon/search/jump-to-line.js";
+import "codemirror/addon/search/match-highlighter.js";
+import "codemirror/addon/search/matchesonscrollbar.css";
+import "codemirror/addon/search/matchesonscrollbar.js";
+
+import "codemirror/addon/dialog/dialog.js";
+import "codemirror/addon/dialog/dialog.css";
+import "codemirror/addon/hint/anyword-hint";
 
 export default function Editor(props) {
   const { language, displayName, value, onChange } = props;
@@ -75,7 +86,6 @@ export default function Editor(props) {
           theme: "material",
           lint: true,
           inputStyle: "contenteditable",
-          // styleActiveLine: true,
           lineWrapping: true,
           smartIndent: true,
           lineNumbers: true,
@@ -92,13 +102,12 @@ export default function Editor(props) {
           matchBrackets: true,
           autoRefresh: true,
           tabSize: 2,
-          // keyMap: "sublime",
+          keyMap: "sublime",
           extraKeys: {
             Tab: "autocomplete",
             //  "Ctrl-Q": function(cm){console.log("HEREEE");
           },
           autofocus: true,
-          // autoCloseBrackets: true,
           highlightSelectionMatches: {
             minChars: 2,
             showToken: /Hello/,
@@ -106,6 +115,8 @@ export default function Editor(props) {
           },
           styleActiveLine: true,
           styleActiveSelected: true,
+          viewportMargin: 99,
+          cursorScrollMargin: 48,
         }}
       />
     </div>
