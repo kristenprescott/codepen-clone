@@ -6,12 +6,20 @@ body {
   background-color: hsl(225, 6%, 25%);
   flex-wrap: wrap;
   justify-content: center;
-  max-height: 50vh;
+  /* max-height: 50vh; */
+  /* height: 50%; */
+  height: auto;
   overflow: auto;
+
+  resize: vertical;
+  overflow: auto !important;
+  /* overflow: visible; */
 }
 
 .pane {
-  height: 50vh;
+  height: auto;
+  /* height: 50vh; */
+  /* height: 50%; */
   display: flex;
 }
 
@@ -23,6 +31,11 @@ body {
   padding: 0.5rem;
   background-color: hsl(225, 6%, 25%);
   flex: 1 1 300px; /*  Stretching: */
+
+  /* height: auto !important;
+  width: auto !important;
+  resize: horizontal;
+  overflow: auto !important; */
 }
 
 .editor-container.collapsed {
@@ -54,6 +67,7 @@ body {
 
 .CodeMirror {
   height: 100% !important;
+  /* height: auto !important; */
 }
 
 .code-mirror-wrapper {
@@ -64,11 +78,8 @@ body {
 }
 
 .CodeMirror {
-  border: 1px solid transparent;
-  height: auto;
-
-  resize: vertical;
-  /* resize: both; */
-  overflow: auto !important;
+  /* height: auto; */
+  /* resize: horizontal; */
   /* overflow: visible; */
+  /* overflow: auto !important; */
 }
